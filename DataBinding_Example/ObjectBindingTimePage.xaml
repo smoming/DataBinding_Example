@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:DataBinding_Example"
+	BindingContext="{x:Reference Name= myObject}" 
+	x:Class="DataBinding_Example.ObjectBindingTimePage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:BindingObject x:Name="myObject" x:Key="myObject"/>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+	</ContentPage.Padding>
+	
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+			<Label Text="{Binding Path= CurrentTime, Mode=OneWay}"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

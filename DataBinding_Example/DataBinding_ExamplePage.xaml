@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:DataBinding_Example" 
+	x:Class="DataBinding_Example.DataBinding_ExamplePage">
+	<!--<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />-->
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+	</ContentPage.Padding>
+	<StackLayout>
+		<Label Text="Target"/>
+		<Entry BindingContext="{x:Reference Name = slider1}" Text="{Binding Path = Value}"/>
+		<Label Text="Source"/>
+		<Slider x:Name="slider1"/>
+	</StackLayout>
+</ContentPage>

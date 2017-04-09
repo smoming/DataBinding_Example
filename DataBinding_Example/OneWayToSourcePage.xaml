@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:DataBinding_Example"
+	BindingContext="{x:Reference Name = myObject}"
+	x:Class="DataBinding_Example.OneWayToSourcePage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:BindingObject x:Name="myObject" x:Key="myObject"/>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+	</ContentPage.Padding>
+	
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="Center">
+			<StackLayout Orientation="Horizontal">
+				<Label Text="bindingValue:"/>
+				<Label x:Name="bindingValue" IsEnabled="false"/>
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="sliderValue:"/>
+				<Label x:Name="sliderValue" IsEnabled="false"/>
+			</StackLayout>
+			<Slider x:Name="slider1" Value="{Binding Path= MyValue, Mode=OneWayToSource}"/>
+			<Button Text="set value to slider" Clicked="Handle_Clicked"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
